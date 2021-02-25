@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- serviceGroup 中可以添加多个service  -->
+<serviceGroup>
+    <!-- 单独的一个service -->
+    <service name="hello" targetNamespace="ns:hello">
+        <!-- service 描述 -->
+        <description>hello service</description>
+        <!-- schemaNamespace 在调用的时候需要使用 -->
+        <schema schemaNamespace="ns:hello"/>
+        <!-- 自己service 的实现类 -->
+        <parameter name="ServiceClass" locked="false">example.HelloService</parameter>
+        <!-- 接口中对外提供的方法-->
+        <operation name="sayHello">
+            <messageReceiver class="org.apache.axis2.rpc.receivers.RPCMessageReceiver"/>
+        </operation>
+    </service>
+
+    <service name="test" targetNamespace="ns:test">
+        <!-- service 描述 -->
+        <description>test service</description>
+        <!-- schemaNamespace 在调用的时候需要使用 -->
+        <schema schemaNamespace="ns:test"/>
+        <!-- 自己service 的实现类 -->
+        <parameter name="ServiceClass" locked="false">example.TestService</parameter>
+        <!-- 接口中对外提供的方法-->
+        <operation name="test">
+            <messageReceiver class="org.apache.axis2.rpc.receivers.RPCMessageReceiver"/>
+        </operation>
+    </service>
+</serviceGroup>
